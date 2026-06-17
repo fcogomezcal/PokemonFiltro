@@ -1,0 +1,48 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs y editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Archivos de configuración local (credenciales, variables de entorno)
+.env
+.env.local
+.env.*.local
+config/conexion.php
+
+# Dependencias
+vendor/
+node_modules/
+composer.lock
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+tmp/
+temp/
+cache/
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de XAMPP/servidor local
+.htaccess
+php.ini
+
+# Otros
+.git
+.gitkeep
+dist/
+build/
