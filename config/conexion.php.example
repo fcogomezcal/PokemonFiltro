@@ -1,0 +1,22 @@
+<?php   
+
+    class Conectar{
+        protected $dbh; 
+
+        protected function conexion(){
+            try{
+                // Configura tus credenciales en las variables correspondientes
+                $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=andercode_pokemonfiltro","DB_USER","DB_PASSWORD");
+                return $conectar;
+            } catch(Exception $e) {
+                print "¡Error BD!: " . $e->getMessage() . "<br/>";
+                die(); //si hay un error, se detiene la ejecución del programa
+            }
+        }
+
+        protected function set_names(){
+            return $this->dbh->query("SET NAMES 'utf8'"); //para que se muestren los caracteres especiales
+        }
+    }
+
+?>
