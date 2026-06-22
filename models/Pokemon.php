@@ -3,7 +3,7 @@
     class Pokemon extends Conectar{
 
         //en get_pokemon debemos pasarle el valor de tipo
-        public function get_pokemon($tipo){
+        public function get_pokemon($tipo, $nombre){
             $conectar = parent::conexion();
             parent::set_names();
             // Consulta base: trae todos los Pokémon activos (est = 1)
@@ -14,12 +14,12 @@
                 $sql.="and tipo in ('".$tipo."')"; //agregar la condición de tipo a la consulta sql
             }
 
+            // pasar la consulta al modelo 
+            if(isset($nombre)){ // si viene información de nombre, entonces se le agrega a la consulta sql
+                $sql.="and nombre like ('%".$nombre."%')"; //agregar la condición de nombre a la consulta sql
+            }
+
             $sql = $conectar->prepare($sql);
-            // EXPLICACIÓN DE BINDVALUE:
-            // No podemos usar un solo bindValue() para la cláusula IN() porque $tipo es un array 
-            // convertido a string ("Fuego','Planta"). Si usamos un marcador (?) y hacemos bindValue, 
-            // PDO lo leería literalmente como buscar un único Pokémon cuyo tipo se llame "Fuego','Planta".
-            // $sql->bindValue(1, $tipo); <- Esto no funciona con múltiples valores en un IN()
             
             $sql->execute();
             return $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);

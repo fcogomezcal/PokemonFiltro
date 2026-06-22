@@ -9,7 +9,7 @@
 
     switch($_GET["op"]){
         case "listar":
-            $datos=$pokemon->get_pokemon(@$_POST["tipo"]); //en get_pokemon debemos pasarle el valor de tipo
+            $datos=$pokemon->get_pokemon(@$_POST["tipo"], @$_POST["nombre"]); //en get_pokemon debemos pasarle el valor de tipo
             foreach($datos as $row){
                 ?>
                     <div class="col-sm-4 col-lg-3 col-md-3">

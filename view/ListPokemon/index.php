@@ -11,8 +11,17 @@
 <body>
     <div class="container">
         <h1>Filtro Avanzado</h1>
+        <br>
         <div class="row">
             <div class="col-md-3">
+
+                <div class="list-group">
+                    <h4>Nombre</h4>
+                    <div class="list-group-item">
+                        <input id="txtnombre" class="form-control"/>
+                    </div>
+                </div>
+                <br>
                 <div class="list-group">
                     <h4>Tipos</h4>
                     <div id="listtipo">

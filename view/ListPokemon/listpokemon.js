@@ -22,20 +22,25 @@ $(document).ready(function(){
         }
     })
 
-
-
+    $("#txtnombre").on("input", function(){
+        filtrartodo();
+    })
 });
 
 function filtrartodo(){
 
     var tipo = getCheckedValue("tipos"); //estos var tipo debemos enviarselo al hacía el modelo. (Pasar controler y modelo)
-     console.log(tipo); //tipo necesitamos pasarlo como parametro al ajax
+
+    var nombre = $("#txtnombre").val(); //obtener el valor del input
 
     $.ajax({
         url:"../../controller/pokemon.php?op=listar",
         method:"POST",
         dataType:"html",
-        data:{tipo:tipo}, //enviar el tipo como parametro al ajax
+        data:{
+            tipo:tipo,
+            nombre:nombre
+        }, //enviar el tipo y nombre como parámetros al ajax
         success:function(data){
             $("#listpokemon").html(data)
         }
@@ -54,3 +59,10 @@ function getCheckedValue(name){
     return array;
 }
 
+function getInputValue(name){
+    var inputValue;
+    $("#txtnombre").on("input", function(){
+        inputValue = $(this).val(); //obtener el valor del input
+    }); 
+    return inputValue;
+}
