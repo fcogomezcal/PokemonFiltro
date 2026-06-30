@@ -6,3 +6,10 @@
     height: 250px;
 }
 
+/* Forzar al slider a no desbordarse */
+.slider.slider-horizontal {
+    width: 100% !important;
+}
+#txtataque {
+    width: 100%;
+}
