@@ -25,6 +25,17 @@ $(document).ready(function(){
     $("#txtnombre").on("input", function(){
         filtrartodo();
     })
+
+    // Al usar jQuery, inicializamos la librería de esta manera:
+    //$("#txtataque").slider({});
+    var slider = new Slider("#txtataque", {});
+    var initialValue = $("#txtataque").data("slider-value");
+    $("#sliderValue").text(initialValue);
+    $("#txtataque").on("change", function(slideEvt) {
+        $("#sliderValue").text(slideEvt.value.newValue);
+        filtrartodo();
+    });
+
 });
 
 function filtrartodo(){
@@ -32,6 +43,9 @@ function filtrartodo(){
     var tipo = getCheckedValue("tipos"); //estos var tipo debemos enviarselo al hacía el modelo. (Pasar controler y modelo)
 
     var nombre = $("#txtnombre").val(); //obtener el valor del input
+
+    var ataque = $("#txtataque").val(); //obtener el valor del slider
+    console.log(ataque);
 
     $.ajax({
         url:"../../controller/pokemon.php?op=listar",
