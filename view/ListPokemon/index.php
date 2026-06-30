@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-slider@10.6.2/dist/css/bootstrap-slider.min.css">
     
     <link rel="stylesheet" href="../../assets/style.css">
-    <title>AnderCode</title>
+    <title>Francisco</title>
 </head>
 
 <body>
